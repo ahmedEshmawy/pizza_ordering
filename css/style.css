@@ -10561,7 +10561,7 @@ h5,
 }
 
 .form-control {
-  height: 58px !important;
+  /* height: 58px !important; */
   background: transparent !important;
   color: rgba(255, 255, 255, 0.9) !important;
   font-size: 18px;
