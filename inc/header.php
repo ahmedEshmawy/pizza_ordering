@@ -38,7 +38,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
-            <!-- search input -->
+            <!-------- start search input ------------->
             <div class="container mr-auto">
                 <form action="<?= BURL ?>search.php" method="POST" class="navbar-form nav" role="search">
                     <div class="form-group">
@@ -48,7 +48,7 @@
 
                 </form>
             </div>
-
+           <!-------- End search input ------------->
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
