@@ -27,9 +27,10 @@ $result2->execute();
 			
 				$id = $row['id'];
 				echo <<<"foodCategories"
+					
 							<div class="col-lg-4 d-flex ftco-animate">
 								<div class="services-wrap d-flex">
-									<a href="category-item.php?category_id=$id  " class="img" style="background-image: url({$row['image_name']});"></a>
+									<a href="#" class="img" style="background-image: url({$row['image_name']});"></a>
 									<div class="text p-4">
 										<h3>{$row['title']}</h3>
 										<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
@@ -40,6 +41,7 @@ $result2->execute();
 									</div>
 								</div>
 							</div>
+							
 							foodCategories;
 			}
 			?>
@@ -58,7 +60,7 @@ $result2->execute();
 		<div class="row">
 			<?php
 			while ($row2 = $result2->fetch()) {
-				echo <<<"foodItem"
+				echo <<<"foodCategory"
 						<div class="col-md-6">
 							<div class="pricing-entry d-flex ftco-animate">
 								<div class="img" style="background-image: url({$row2['image_name']});"></div>
@@ -74,7 +76,7 @@ $result2->execute();
 							</div>
 
 						</div>
-				foodItem;
+				foodCategory;
 			}
 			?>
 
