@@ -85,7 +85,10 @@
 						<div class="text p-4 m-3">
 							<h3>{$row['title']}</h3>
 							<p>{$row['description']} </p>
-							<p class="price"><span>{$row['price']}.$</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+							<p class="price">
+							 <span>{$row['price']}.$</span> 
+							 <a href="order.php?id={$row['id']}" class="ml-2 btn btn-white btn-outline-white">Order Now</a>
+							 </p>
 						</div>
 					</div>
 				</div>	

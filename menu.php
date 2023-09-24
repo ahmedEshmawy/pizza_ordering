@@ -24,14 +24,19 @@ $result2->execute();
 		<div class="row no-gutters d-flex">
 			<?php
 			while ($row = $result1->fetch()) {
+			
+				$id = $row['id'];
 				echo <<<"foodCategories"
 							<div class="col-lg-4 d-flex ftco-animate">
 								<div class="services-wrap d-flex">
-									<a href="#" class="img" style="background-image: url({$row['image_name']});"></a>
+									<a href="category-item.php?category_id=$id  " class="img" style="background-image: url({$row['image_name']});"></a>
 									<div class="text p-4">
 										<h3>{$row['title']}</h3>
 										<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
-										<p class="price"><span>$2.90</span> <a href="#" class="ml-2 btn btn-white btn-outline-white">Order</a></p>
+										<p class="price">
+										<a href="category-item.php?category_id=$id  " class="btn btn-white btn-outline-white">View Menu</a>
+										
+										</p>
 									</div>
 								</div>
 							</div>
