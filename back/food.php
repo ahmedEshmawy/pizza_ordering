@@ -43,7 +43,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Iamge</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Description</th>
                     <th scope="col">Price</th>
                     <th scope="col">Category Name</th>
@@ -84,7 +84,7 @@
                             <td><?= $row['active'] ?></td>
 
                             <td>
-                                <a href="<?= BURLA ?>food-edite.php?id=<?= $row['id'] ?>" class="badge badge-secondary">Update</a>
+                                <a href="<?= BURLA ?>food-edit.php?id=<?= $row['id'] ?>" class="badge badge-secondary">Update</a>
                                 <a href="<?= BURLA; ?>handelers/food/delete-food.php?id=<?= $row['id']; ?>&image_name=<?= $row['image_name'] ?> " class="badge badge-danger">Delete</a>
                             </td>
                         </tr>

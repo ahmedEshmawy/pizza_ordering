@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php include "../core/config.php"; ?>
 <?php include "handelers/logincheck.php"; ?>
-<?php include "inc/header.php";  ?>
+<?php include "inc/header.php"; ?>
 <!-- End Topbar header -->
 
 <?php include "inc/sidebar.php"; ?>
@@ -25,27 +25,94 @@
     </div>
     <div class="card">
         <div class="card-body">
+             <!-- show session msg -->
+             <?php if (isset($_SESSION['msg'])):?>
+                      
+                      <div class="alert alert-success">
+                          <?php echo $_SESSION['msg'] ?>
+                      </div>
+              <?php    
+                  unset($_SESSION['msg']);
+              endif;
+              ?>
 
         </div>
         <table class="table">
             <thead>
+
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Full Name</th>
-                    <th scope="col">User Name</th>
+                    <th scope="col">Food Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Order Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col"> Phone</th>
+                    <th scope="col"> email</th>
+                    <th scope="col"> Address</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>
-                        <a href="#" class="badge badge-secondary">Update</a>
-                        <a href="#" class="badge badge-danger">Delete</a>
-                    </td>
-                </tr>
+                <?php
+                $i = 1;
+                $result = $conn->query("SELECT * FROM `tbl_order` ORDER BY `id` DESC ");
+                $count = $result->rowCount();
+                while ($row = $result->fetch()):
+                    if ($count > 0):
+
+                        ?>
+                        <tr>
+                            <th scope="row">
+                                <?= $i++; ?>
+                            </th>
+                            <td>
+                                <?= $row['food_title'] ?>
+                            </td>
+                            <td>
+                                <?= $row['price'] ?>
+                            </td>
+                            <td>
+                                <?= $row['qty'] ?>
+                            </td>
+                            <td>
+                                <?= $row['total'] ?>
+                            </td>
+                            <td>
+                                <?= $row['order_date'] ?>
+                            </td>
+                            <td>
+                                <?= $row['status'] ?>
+                            </td>
+                            <td>
+                                <?= $row['customer_name'] ?>
+                            </td>
+                            <td>
+                                <?= $row['customer_contact'] ?>
+                            </td>
+                            <td>
+                                <?= $row['customer_email'] ?>
+                            </td>
+                            <td>
+                                <?= $row['customer_address'] ?>
+                            </td>
+
+                            <td>
+                                <a href="<?=BURLA?>order-edit.php?id=<?= $row['id'] ?>" class="badge badge-secondary">Update</a>
+                              
+                            </td>
+                        </tr>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="3">
+                                <?= "No data Found " ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+
+                <?php endwhile; ?>
 
 
             </tbody>

@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
 
     //insert data to database
 
-    // $sql = "INSERT INTO `tbl_category`( `title`,`featured`,`image_name`,`active`) VALUES (?,?,?,?)";
+    
     $sql = "INSERT INTO tbl_category SET 
             title='$title',
             featured ='$featured',
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
             ";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    //$stmt->execute([$title, $featured,$image, $active]);
+  
 
 
     if ($stmt) {

@@ -22,7 +22,7 @@ if (isset($_GET['category_id'])) {
 <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section ftco-animate text-center">
-            
+            <h2 class="mb-4"> Items</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
         </div>
     </div>
@@ -33,23 +33,23 @@ if (isset($_GET['category_id'])) {
         <div class="row">
             <?php
                 while ($row = $result->fetch()) {
-                    echo <<<"foodItem"
-                    <div class="col-md-6">
-                        <div class="pricing-entry d-flex ftco-animate">
-                            <div class="img" style="background-image: url({$row['image_name']});"></div>
-                            <div class="desc pl-3">
-                                <div class="d-flex text align-items-center">
-                                    <h3><span>{$row['title']}</span></h3>
-                                    <span class="price">{$row['price']}. $</span>
-                                </div>
-                                <div class="d-block">
-                                    <p>{$row['description']}</p>
-                                </div>
+                    echo <<<"foodMenu"
+
+                    <div class="col-lg-4 d-flex ftco-animate">
+                        <div class="services-wrap d-flex">
+                            <a href="order.php?id={$row['id']}" class="img" style="background-image: url({$row['image_name']});margin: 3%;">
+                            </a>
+                            <div class="text p-4 m-3">
+                                <h3>{$row['title']}</h3>
+                                <p>{$row['description']} </p>
+                                <p class="price">
+                                 <span>{$row['price']}.$</span> 
+                                 <a href="order.php?id={$row['id']}" class="ml-2 btn btn-white btn-outline-white">Order Now</a>
+                                 </p>
                             </div>
                         </div>
-
-                    </div>
-            foodItem;
+                    </div>	
+                foodMenu;
                 }
 
             ?>

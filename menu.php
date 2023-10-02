@@ -1,4 +1,5 @@
-<?php include "inc/header.php";  ?>
+<?php session_start(); ?>
+<?php include "inc/header.php"; ?>
 <?php
 //select category data
 $result1 = $conn->prepare("SELECT * FROM `tbl_category`WHERE `active`= 'yes'");
@@ -16,15 +17,28 @@ $result2->execute();
 		<div class="row justify-content-center mb-5 pb-3">
 			<div class="col-md-7 heading-section ftco-animate text-center">
 				<h2 class="mb-4">Our Categories</h2>
-				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+					the blind texts.</p>
+
+				<!-- show session msg -->
+				<?php if (isset($_SESSION['msg'])): ?>
+
+					<div class="alert alert-success">
+						<?php echo $_SESSION['msg'] ?>
+					</div>
+					<?php
+					unset($_SESSION['msg']);
+				endif;
+				?>
 			</div>
 		</div>
+
 	</div>
 	<div class="container-wrap">
 		<div class="row no-gutters d-flex">
 			<?php
 			while ($row = $result1->fetch()) {
-			
+
 				$id = $row['id'];
 				echo <<<"foodCategories"
 					
@@ -53,7 +67,8 @@ $result2->execute();
 			<div class="col-md-7 heading-section text-center ftco-animate">
 				<h2 class="mb-4">Our Menu Pricing</h2>
 				<p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-				<p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+				<p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+					there live the blind texts.</p>
 			</div>
 		</div>
 
@@ -88,4 +103,4 @@ $result2->execute();
 </section>
 
 
-<?php include "inc/footer.php";  ?>
+<?php include "inc/footer.php"; ?>
