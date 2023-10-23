@@ -83,6 +83,23 @@
                             <td>
                                 <?= $row['order_date'] ?>
                             </td>
+                            <?php if ($row['status'] == "Ordered"): ?>
+                                <td>
+                                    <span class="badge badge-success"><?= $row['status'] ?></span>
+                                </td>
+                            <?php elseif ($row['status'] == "On Delivery"): ?>
+                                <td>
+                                    <span class="badge badge-warning"><?= $row['status'] ?></span>
+                                </td>
+                            <?php elseif ($row['status'] == "Delivered"): ?>
+                                <td>
+                                    <span class="badge badge-success"><?= $row['status'] ?></span>
+                                </td>
+                            <?php elseif ($row['status'] == "Canceled"): ?>
+                                <td>
+                                    <span class="badge badge-danger"><?= $row['status'] ?></span>
+                                </td>
+                            <?php endif; ?>
                             <td>
                                 <?= $row['status'] ?>
                             </td>

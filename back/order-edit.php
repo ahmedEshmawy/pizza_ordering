@@ -76,10 +76,10 @@ if (isset($_GET['id'])) {
                                 <div class="col-md-9">
                                    
                                     <select name="status" >
-                                        <option <?php if($row['status'] == "Ordered")  "selected"?> value="Ordered">Ordered</option>
-                                        <option <?php if($row['status'] == "On Delivery")  "selected"?> value="On Delivery">On Delivery</option>
-                                        <option <?php if($row['status'] == "Delivered")  "selected"?>  value="Delivered">Delivered</option>
-                                        <option <?php if($row['status'] == "Canceled")  "selected"?>  value="Canceled">Canceled</option>
+                                        <option <?php if($row['status'] == "Ordered") echo "selected";?> value="Ordered">Ordered</option>
+                                        <option <?php if($row['status'] == "On Delivery") echo "selected";?> value="On Delivery">On Delivery</option>
+                                        <option <?php if($row['status'] == "Delivered") echo "selected";?>  value="Delivered">Delivered</option>
+                                        <option <?php if($row['status'] == "Canceled") echo "selected";?>  value="Canceled">Canceled</option>
                                     </select>
                                 </div>
                             </div>
